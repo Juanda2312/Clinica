@@ -1,6 +1,7 @@
 package co.edu.uniquindio.clinica.servicios;
 
 import co.edu.uniquindio.clinica.modelo.entidades.Servicio;
+import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
 import co.edu.uniquindio.clinica.repositorios.ServicioRepositorio;
 
 import java.util.ArrayList;
@@ -25,7 +26,11 @@ public class ServicioServicio {
 
 
     public ArrayList<Servicio> getServiciosDisponibles() {
-        servicioRepositorio.getServiciosDisponibles();
+        return servicioRepositorio.getServiciosDisponibles();
+    }
+
+    public ArrayList<Servicio> getServiciosDisponibles(Suscripcion suscripcion) {
+        return suscripcion.getServiciosDisponibles();
     }
 
     public void registrarServicio(Double precio, String nombre) throws Exception {

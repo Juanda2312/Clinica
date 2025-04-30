@@ -27,6 +27,7 @@ public class PacienteServicio {
         if (!Pattern.matches("^\\d{9}$", cedula)) e = e +"Cedula invalida - ";
         if (!Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email)) e = e +"Email invalido - ";
         if (!e.isEmpty()) throw new Exception(e + "Verifique los datos y corrigalos.");
+        if (buscarPaciente(cedula) != null) throw new Exception("Ya hay un paciente registrado con esa cedula");
         Paciente paciente = Paciente.builder().nombre(nombre).cedula(cedula).email(email).telefono(telefono).suscripcion(suscripcion).build();
         pacienteRepositorio.registrarPaciente(paciente);
     }
@@ -41,6 +42,11 @@ public class PacienteServicio {
         for (Paciente paciente : pacientes){
             if (paciente.getCedula().equals(cedula)) return paciente;
         }
-        throw new Exception("No se encuentra un paciente registrado con esta cedula");
+        return null;
+    }
+
+    public void eliminarPaciente(String cedula) throws Exception {
+        Paciente paciente = buscarPaciente(cedula);
+        pacienteRepositorio.eliminarPaciente(paciente);
     }
 }

@@ -13,7 +13,11 @@ public interface IClinicaServicio {
 
     void registrarPaciente(String telefono, String nombre, String cedula, String email, Suscripcion suscripcion)throws Exception;
 
+    void eliminarPaciente(String cedula)throws Exception;
+
     ArrayList<Paciente> listarPacientes();
+
+    ArrayList<Cita> listarCitas();
 
     ArrayList<Servicio> getServiciosDisponibles();
 

@@ -31,6 +31,10 @@ public class ClinicaServicio implements IClinicaServicio {
         return pacienteServicio.listarPacientes();
     }
 
+    public void eliminarPaciente(String cedula)throws Exception{
+        pacienteServicio.eliminarPaciente(cedula);
+    }
+
     public void registrarCita(String cedula, LocalDateTime fecha, Servicio servicio)throws Exception{
         Paciente paciente = pacienteServicio.buscarPaciente(cedula);
         citaServicio.registrarCita(paciente, fecha, servicio);
@@ -38,6 +42,10 @@ public class ClinicaServicio implements IClinicaServicio {
 
     public void cancelarCita(Cita cita)throws Exception{
         citaServicio.cancelarCita(cita);
+    }
+
+    public ArrayList<Cita> listarCitas(){
+        return citaServicio.listarCitas();
     }
 
     public Factura generarFactura(String cedula, Servicio servicio) throws Exception {

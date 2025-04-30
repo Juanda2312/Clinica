@@ -1,5 +1,7 @@
 package co.edu.uniquindio.clinica.app;
 
+import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
+import co.edu.uniquindio.clinica.modelo.factory.SuscripcionBasica;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -44,5 +44,9 @@ public class CitaServicio {
         }
         throw new Exception("Esta cita no existe");
     }
+
+    public ArrayList<Cita> listarCitas(){
+        return citaRepositorio.listarCitas();
+    }
 }
 

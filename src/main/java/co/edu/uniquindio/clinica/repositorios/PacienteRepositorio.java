@@ -14,6 +14,10 @@ public class PacienteRepositorio {
         pacientes.add(paciente);
     }
 
+    public void eliminarPaciente(Paciente paciente) throws Exception {
+        pacientes.remove(paciente);
+    }
+
     public ArrayList<Paciente> listarPacientes() {
         return pacientes;
     }
