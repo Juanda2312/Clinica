@@ -19,7 +19,7 @@ public interface IClinicaServicio {
 
     ArrayList<Servicio> getServiciosDisponibles(Suscripcion suscripcion);
 
-    void registrarServicio(Double precio, String nombre);
+    void registrarServicio(Double precio, String nombre) throws Exception;
 
     void registrarCita(String cedula,  LocalDateTime fecha, Servicio servicio)throws Exception;
 
