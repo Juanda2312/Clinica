@@ -10,4 +10,16 @@ public class CitaRepositorio {
     public CitaRepositorio() {
         citas = new ArrayList<>();
     }
+
+    public void registrarCita(Cita cita) {
+        citas.add(cita);
+    }
+    public ArrayList<Cita> listarCitas() {
+        return citas;
+    }
+
+    public void eliminarCita(Cita cita) {
+        citas.remove(cita);
+    }
 }
+
