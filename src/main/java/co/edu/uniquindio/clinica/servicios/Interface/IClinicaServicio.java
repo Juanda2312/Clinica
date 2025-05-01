@@ -25,6 +25,8 @@ public interface IClinicaServicio {
 
     void registrarServicio(Double precio, String nombre, Suscripcion suscripcion) throws Exception;
 
+    void registrarServicio(Double precio, String nombre) throws Exception;
+
     void registrarCita(String cedula,  LocalDateTime fecha, Servicio servicio)throws Exception;
 
     void cancelarCita(Cita cita)throws Exception;

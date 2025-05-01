@@ -64,4 +64,8 @@ public class ClinicaServicio implements IClinicaServicio {
         servicioServicio.registrarServicio(precio, nombre, suscripcion);
     }
 
+    public void registrarServicio(Double precio, String nombre) throws Exception {
+        servicioServicio.registrarServicio(precio, nombre);
+    }
+
 }
