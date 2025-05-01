@@ -38,7 +38,9 @@ public class ServicioServicio {
         if (servicioaux != null) throw new Exception("Ya existe un servicio con esa nombre");
         Servicio servicio = Servicio.builder().id(UUID.randomUUID()).nombre(nombre).precio(precio).build();
         servicioRepositorio.registrarServicio(servicio);
-        suscripcion.AgregarServicio(servicio);
+        if (suscripcion != null) {
+            suscripcion.AgregarServicio(servicio);
+        }
     }
 
     public void registrarServicio(Double precio, String nombre) throws Exception {
