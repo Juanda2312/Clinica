@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneCitasRegistradas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a8bbf7;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="paneCitasRegistradas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a8bbf7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.clinica.controladores.CitasRegistradasController">
    <children>
       <TableView fx:id="tableCitas" layoutX="14.0" layoutY="68.0" prefHeight="281.0" prefWidth="572.0">
          <columns>
             <TableColumn fx:id="columnCedulaCitas" prefWidth="108.0" text="Cedula" />
             <TableColumn fx:id="columnServicioCitas" prefWidth="116.0" text="Servicio" />
-            <TableColumn fx:id="columnDiaCitas" prefWidth="109.0" text="Dia" />
-            <TableColumn fx:id="columnHoraCitas" minWidth="0.0" prefWidth="114.0" text="Hora" />
-            <TableColumn fx:id="columnPrecioCitas" prefWidth="124.0" text="Precio" />
+            <TableColumn fx:id="columnDiaCitas" prefWidth="76.0" text="Dia" />
+            <TableColumn fx:id="columnHoraCitas" minWidth="0.0" prefWidth="74.0" text="Hora" />
+            <TableColumn fx:id="columnPrecioCitas" prefWidth="197.0" text="Precio" />
          </columns>
       </TableView>
       <Label layoutX="218.0" layoutY="24.0" text="CITAS REGISTRADAS  ">
@@ -23,6 +23,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="buttonCancelar" layoutX="263.0" layoutY="361.0" mnemonicParsing="false" text="Cancelar cita" />
+      <Button fx:id="buttonCancelar" layoutX="263.0" layoutY="361.0" mnemonicParsing="false" onAction="#CancelarCitaAction" text="Cancelar cita" />
    </children>
 </Pane>

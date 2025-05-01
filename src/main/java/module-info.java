@@ -4,9 +4,12 @@ module co.edu.uniquindio.clinica {
     requires org.simplejavamail.core;
     requires org.simplejavamail;
     requires static lombok;
+    requires java.desktop;
 
     opens co.edu.uniquindio.clinica to javafx.fxml;
-    exports co.edu.uniquindio.clinica;
-    exports co.edu.uniquindio.clinica.app;
     opens co.edu.uniquindio.clinica.app to javafx.fxml;
+    opens co.edu.uniquindio.clinica.controladores to javafx.fxml;
+
+    exports co.edu.uniquindio.clinica.modelo.entidades;
+    exports co.edu.uniquindio.clinica.app;
 }

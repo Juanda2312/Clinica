@@ -10,4 +10,6 @@ public interface Suscripcion {
     ArrayList<Servicio> getServiciosDisponibles();
 
     Factura generarFacturaCobro(Servicio servicio);
+
+    void AgregarServicio(Servicio servicio);
 }

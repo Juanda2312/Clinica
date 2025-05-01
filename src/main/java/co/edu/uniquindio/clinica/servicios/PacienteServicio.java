@@ -16,15 +16,15 @@ public class PacienteServicio {
 
     public void registrarPaciente(String telefono, String nombre, String cedula, String email, Suscripcion suscripcion)throws Exception {
         String e = "";
-        if (telefono == null) e = e + "Rellene el telefono - ";
-        if (nombre == null) e = e + "Rellene el nombre - ";
-        if (cedula == null) e = e + "Rellene la cedula - ";
-        if (email == null) e = e + "Rellene el correo - ";
+        if (telefono.isEmpty()) e = e + "Rellene el telefono - ";
+        if (nombre.isEmpty()) e = e + "Rellene el nombre - ";
+        if (cedula.isEmpty()) e = e + "Rellene la cedula - ";
+        if (email.isEmpty()) e = e + "Rellene el correo - ";
         if (suscripcion == null) e = e + "Seleccione la suscripcion - ";
         if (!e.isEmpty()) throw new Exception(e + "Por favor rellene todos los datos.");
-        if (!Pattern.matches("^\\d{10}$\n", telefono)) e = e + "Telefono invalido - ";
+        if (!Pattern.matches("^\\d{10}$", telefono)) e = e + "Telefono invalido - ";
         if (!Pattern.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$", nombre)) e = e +"Nombre invalido - ";
-        if (!Pattern.matches("^\\d{9}$", cedula)) e = e +"Cedula invalida - ";
+        if (!Pattern.matches("^\\d{10}$", cedula)) e = e +"Cedula invalida - ";
         if (!Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email)) e = e +"Email invalido - ";
         if (!e.isEmpty()) throw new Exception(e + "Verifique los datos y corrigalos.");
         if (buscarPaciente(cedula) != null) throw new Exception("Ya hay un paciente registrado con esa cedula");

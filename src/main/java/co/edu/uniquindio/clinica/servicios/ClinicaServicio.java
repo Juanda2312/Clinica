@@ -6,7 +6,6 @@ import co.edu.uniquindio.clinica.modelo.entidades.Paciente;
 import co.edu.uniquindio.clinica.modelo.entidades.Servicio;
 import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
 import co.edu.uniquindio.clinica.servicios.Interface.IClinicaServicio;
-import javafx.scene.paint.Paint;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -61,8 +60,8 @@ public class ClinicaServicio implements IClinicaServicio {
         return servicioServicio.getServiciosDisponibles(suscripcion);
     }
 
-    public void registrarServicio(Double precio, String nombre) throws Exception {
-        servicioServicio.registrarServicio(precio, nombre);
+    public void registrarServicio(Double precio, String nombre,Suscripcion suscripcion) throws Exception {
+        servicioServicio.registrarServicio(precio, nombre, suscripcion);
     }
 
 }

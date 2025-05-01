@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane fx:id="paneRegistroUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fes.vecteezy.com%2Farte-vectorial%2F5072;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="paneRegistroUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.clinica.controladores.RegistroUsuarioController">
    <children>
-      <Button fx:id="buttonCrear" layoutX="323.0" layoutY="314.0" mnemonicParsing="false" text="Crear" textFill="#10528d" />
+      <Button fx:id="buttonCrear" layoutX="323.0" layoutY="314.0" mnemonicParsing="false" onAction="#CrearUsuarioAction" text="Crear" textFill="#10528d" />
       <ComboBox fx:id="boxSuscripcion" layoutX="348.0" layoutY="252.0" prefWidth="150.0" />
       <Label layoutX="224.0" layoutY="85.0" text="Nombre" />
       <Label layoutX="224.0" layoutY="121.0" text="Numero de cedula " />
@@ -32,7 +31,7 @@
          <children>
             <ImageView fitHeight="106.0" fitWidth="105.0" layoutX="40.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../Users/laura/OneDrive/Escritorio/imagenoriginal.png" />
+                  <Image url="@../../../../imagenoriginal.png" />
                </image>
             </ImageView>
             <Label layoutX="26.0" layoutY="200.0" prefHeight="84.0" prefWidth="171.0" text="Gracias por preferirnos ">
