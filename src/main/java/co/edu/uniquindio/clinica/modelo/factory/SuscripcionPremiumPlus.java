@@ -8,29 +8,29 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class SuscripcionBasica implements Suscripcion {
-    private static SuscripcionBasica instancia;
+public class SuscripcionPremiumPlus implements  Suscripcion{
+    private static SuscripcionPremiumPlus instancia;
 
     @Getter
     private final ArrayList<Servicio> serviciosDisponibles;
 
-    private SuscripcionBasica() {
+    private SuscripcionPremiumPlus() {
         serviciosDisponibles = new ArrayList<>();
     }
 
-    public static SuscripcionBasica getInstancia() {
-        if (instancia == null) {
-            instancia = new SuscripcionBasica();
+    public static SuscripcionPremiumPlus getInstancia(){
+        if(instancia == null){
+            instancia = new SuscripcionPremiumPlus();
         }
         return instancia;
     }
 
     public Factura generarFacturaCobro(Servicio servicio) {
         Factura factura = Factura.builder().id(UUID.randomUUID()).fecha(LocalDateTime.now()).subtotal(servicio.getPrecio()).build();
-        if (serviciosDisponibles.contains(servicio)){
-                factura.setTotal(0.0);
-                return factura;
-            }else{
+        if (serviciosDisponibles.contains(servicio)|| SuscripcionBasica.getInstancia().getServiciosDisponibles().contains(servicio)|| SuscripcionPremium.getInstancia().getServiciosDisponibles().contains(servicio)){
+            factura.setTotal(0.0);
+            return factura;
+        }else{
             factura.setTotal(servicio.getPrecio());
             return factura;
         }

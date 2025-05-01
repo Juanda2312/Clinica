@@ -25,6 +25,9 @@ public class AgendasCitasController implements Initializable {
     private Button buttonAgendar;
 
     @FXML
+    private Button buttonAgendarCorreo;
+
+    @FXML
     private Pane paneAgendaCita;
 
     @FXML
@@ -58,12 +61,32 @@ public class AgendasCitasController implements Initializable {
         }
     }
 
+    @FXML
+    void AgendarCitaCorreoAction(ActionEvent event) {
+        try{
+            clinicaServicio.registrarCitaCorreo(
+                    textCedulaCitas.getText(),
+                    pickerDia.getValue().atTime(spinnerHorario.getValue(),0),
+                    getServicioSeleccionado()
+            );
+            limpiarCampos();
+            controladorPrincipal.crearAlerta("Cita creada con exito", Alert.AlertType.INFORMATION);
+
+        } catch (Exception e) {
+            controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        boxServicios.setItems(FXCollections.observableList(nombrarServicios()));
+        cargarServicios();
         boxServicios.getSelectionModel().clearSelection();
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23);
         spinnerHorario.setValueFactory(valueFactory);
+    }
+
+    public void cargarServicios() {
+        boxServicios.setItems(FXCollections.observableList(nombrarServicios()));
     }
 
     public void limpiarCampos(){

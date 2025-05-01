@@ -3,6 +3,7 @@ package co.edu.uniquindio.clinica.modelo.entidades;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.UUID;
 
@@ -14,4 +15,9 @@ public class Servicio {
     private String nombre;
     private UUID id;
 
+    @Override
+    public String toString() {
+        return "Nombre= " + nombre +
+                ", Precio= " + precio;
+    }
 }

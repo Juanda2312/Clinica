@@ -28,17 +28,20 @@ public class SuscripcionPremium implements Suscripcion {
 
     public Factura generarFacturaCobro(Servicio servicio) {
         Factura factura = Factura.builder().id(UUID.randomUUID()).fecha(LocalDateTime.now()).subtotal(servicio.getPrecio()).build();
-        for (Servicio servicioDisponible : serviciosDisponibles) {
-            if (servicioDisponible.getNombre().equalsIgnoreCase(servicio.getNombre())) {
-                factura.setTotal(0.0);
-                return factura;
+        if (serviciosDisponibles.contains(servicio)|| SuscripcionBasica.getInstancia().getServiciosDisponibles().contains(servicio)){
+            factura.setTotal(0.0);
+            return factura;
+        }else{
+            factura.setTotal(servicio.getPrecio());
+            return factura;
             }
         }
-        factura.setTotal(servicio.getPrecio());
-        return factura;
-    }
 
     public void AgregarServicio(Servicio servicio) {
         serviciosDisponibles.add(servicio);
+    }
+
+    public void eliminarServicio(Servicio servicio) {
+        serviciosDisponibles.remove(servicio);
     }
 }

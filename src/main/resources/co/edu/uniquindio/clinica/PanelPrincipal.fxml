@@ -23,8 +23,10 @@
         <tabs>
             <Tab fx:id="tab1" closable="false" text="Registrar paciente" />
             <Tab fx:id="tab2" closable="false" onSelectionChanged="#RecargarPacientes" text="Lista de pacientes" />
-            <Tab fx:id="tab3" closable="false" text="Agendar cita" />
+            <Tab fx:id="tab3" closable="false" onSelectionChanged="#RecargarServiciosagenda" text="Agendar cita" />
             <Tab fx:id="tab4" closable="false" onSelectionChanged="#RecargarCitas" text="Lista de citas" />
+         <Tab fx:id="tab5" closable="false" text="Registrar Servicio" />
+         <Tab fx:id="tab6" closable="false" onSelectionChanged="#RecargarServicios" text="Lista de Servicios" />
         </tabs>
     </TabPane>
 

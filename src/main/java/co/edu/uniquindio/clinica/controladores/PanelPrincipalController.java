@@ -18,6 +18,8 @@ public class PanelPrincipalController implements Initializable {
 
     UsuariosRegistradosController usuariosRegistradosController;
     CitasRegistradasController citasRegistradasController;
+    ServiciosRegistradosController serviciosRegistradosController;
+    AgendasCitasController agendasCitasController;
 
     @FXML
     private Tab tab1;
@@ -34,7 +36,11 @@ public class PanelPrincipalController implements Initializable {
     @FXML
     private Tab tab4;
 
+    @FXML
+    private Tab tab5;
 
+    @FXML
+    private Tab tab6;
 
     @FXML
     void RecargarPacientes(Event event) {
@@ -46,13 +52,26 @@ public class PanelPrincipalController implements Initializable {
         citasRegistradasController.recargarDatos();
     }
 
+    @FXML
+    void RecargarServicios(Event event) {
+        serviciosRegistradosController.recargarDatos();
+    }
+
+    @FXML
+    void RecargarServiciosagenda(Event event) {
+        agendasCitasController.cargarServicios();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
             cargarTab(tab1, "/co/edu/uniquindio/clinica/RegistroUsuario.fxml");
             usuariosRegistradosController = (UsuariosRegistradosController) cargarTabController(tab2, "/co/edu/uniquindio/clinica/UsuariosRegistrados.fxml");
-            cargarTab(tab3, "/co/edu/uniquindio/clinica/AgendasCitas.fxml");
+            agendasCitasController = (AgendasCitasController) cargarTabController(tab3, "/co/edu/uniquindio/clinica/AgendasCitas.fxml");
             citasRegistradasController =  (CitasRegistradasController) cargarTabController(tab4, "/co/edu/uniquindio/clinica/CitasRegistradas.fxml");
+            cargarTab(tab5, "/co/edu/uniquindio/clinica/RegistroServicio.fxml");
+            serviciosRegistradosController = (ServiciosRegistradosController) cargarTabController(tab6,"/co/edu/uniquindio/clinica/ServiciosRegistrados.fxml");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

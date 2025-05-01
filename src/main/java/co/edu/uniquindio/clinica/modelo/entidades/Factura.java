@@ -3,6 +3,7 @@ package co.edu.uniquindio.clinica.modelo.entidades;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -14,4 +15,10 @@ public class Factura {
     private LocalDateTime fecha;
     private UUID id;
     private Double total,subtotal;
+
+    @Override
+    public String toString() {
+        return  "Total= " + total +
+                ", Subtotal= " + subtotal;
+    }
 }

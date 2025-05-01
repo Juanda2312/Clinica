@@ -12,4 +12,6 @@ public interface Suscripcion {
     Factura generarFacturaCobro(Servicio servicio);
 
     void AgregarServicio(Servicio servicio);
+
+    void eliminarServicio(Servicio servicio);
 }

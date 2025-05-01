@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneCitasRegistradas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a8bbf7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.clinica.controladores.ServiciosRegistradosController">
+   <children>
+      <TableView fx:id="tableServicios" layoutX="14.0" layoutY="68.0" prefHeight="281.0" prefWidth="572.0">
+         <columns>
+            <TableColumn fx:id="columnNombre" prefWidth="301.0" text="Nombre" />
+            <TableColumn fx:id="columnPrecio" prefWidth="270.0" text="Precio" />
+         </columns>
+      </TableView>
+      <Label layoutX="218.0" layoutY="24.0" text="SERVICIOS REGISTRADOS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonEliminar" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#eliminarServicioAction" text="Eliminar  Servicio" />
+      <ComboBox fx:id="boxSuscripciones" layoutX="436.0" layoutY="361.0" onAction="#FiltrarporSuscripcion" prefWidth="150.0" />
+      <Label layoutX="320.0" layoutY="365.0" text="Tipo de suscripcion:" />
+   </children>
+</Pane>

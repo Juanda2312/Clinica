@@ -24,12 +24,24 @@ public class ServicioServicio {
         return null;
     }
 
+    public Servicio buscarServicio(Servicio servicio) {
+        ArrayList<Servicio> servicios =  servicioRepositorio.getServiciosDisponibles();
+        for (Servicio servicioaux : servicios){
+            if (servicio.getId().equals(servicioaux.getId())){
+                return servicio;
+            }
+        }
+        return null;
+    }
+
 
     public ArrayList<Servicio> getServiciosDisponibles() {
         return servicioRepositorio.getServiciosDisponibles();
     }
 
     public ArrayList<Servicio> getServiciosDisponibles(Suscripcion suscripcion) {
+        ArrayList<Servicio> servicios = suscripcion.getServiciosDisponibles();
+        servicios.removeIf(servicio -> !getServiciosDisponibles().contains(servicio));
         return suscripcion.getServiciosDisponibles();
     }
 
@@ -48,5 +60,10 @@ public class ServicioServicio {
         if (servicioaux != null) throw new Exception("Ya existe un servicio con esa nombre");
         Servicio servicio = Servicio.builder().id(UUID.randomUUID()).nombre(nombre).precio(precio).build();
         servicioRepositorio.registrarServicio(servicio);
+    }
+
+    public void eliminarServicio(Servicio servicio) throws Exception {
+        if (buscarServicio(servicio) == null) throw new Exception("Este servicio no existe");
+        servicioRepositorio.eliminarServicio(servicio);
     }
 }

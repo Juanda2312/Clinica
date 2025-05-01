@@ -13,7 +13,7 @@
 
 <Pane fx:id="paneAgendaCita" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.clinica.controladores.AgendasCitasController">
    <children>
-      <Button fx:id="buttonAgendar" layoutX="320.0" layoutY="305.0" mnemonicParsing="false" onAction="#AgendarCitaAction" text="Agendar" textFill="#10528d" />
+      <Button fx:id="buttonAgendar" layoutX="259.0" layoutY="305.0" mnemonicParsing="false" onAction="#AgendarCitaAction" text="Agendar" textFill="#10528d" />
       <ComboBox fx:id="boxServicios" layoutX="343.0" layoutY="115.0" prefWidth="150.0" />
       <Label layoutX="219.0" layoutY="119.0" text="Servicios disponibles " />
       <Label layoutX="219.0" layoutY="155.0" text="Numero de cedula " />
@@ -41,5 +41,6 @@
       </Pane>
       <DatePicker fx:id="pickerDia" layoutX="345.0" layoutY="188.0" />
       <Spinner fx:id="spinnerHorario" layoutX="346.0" layoutY="226.0" />
+      <Button fx:id="buttonAgendarCorreo" layoutX="375.0" layoutY="305.0" mnemonicParsing="false" onAction="#AgendarCitaCorreoAction" text="Agendar y enviar correo" textFill="#10528d" />
    </children>
 </Pane>

@@ -2,7 +2,6 @@ package co.edu.uniquindio.clinica.repositorios;
 
 import java.util.ArrayList;
 import co.edu.uniquindio.clinica.modelo.entidades.Servicio;
-import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
 
 public class ServicioRepositorio {
 
@@ -19,4 +18,6 @@ public class ServicioRepositorio {
     public void registrarServicio(Servicio servicio){
         servicios.add(servicio);
     }
+
+    public void eliminarServicio(Servicio servicio) {servicios.remove(servicio);}
 }

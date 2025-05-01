@@ -39,6 +39,11 @@ public class ClinicaServicio implements IClinicaServicio {
         citaServicio.registrarCita(paciente, fecha, servicio);
     }
 
+    public void registrarCitaCorreo(String cedula,  LocalDateTime fecha, Servicio servicio)throws Exception{
+        Paciente paciente = pacienteServicio.buscarPaciente(cedula);
+        citaServicio.registrarCitaCorreo(paciente, fecha, servicio);
+    }
+
     public void cancelarCita(Cita cita)throws Exception{
         citaServicio.cancelarCita(cita);
     }
@@ -66,6 +71,10 @@ public class ClinicaServicio implements IClinicaServicio {
 
     public void registrarServicio(Double precio, String nombre) throws Exception {
         servicioServicio.registrarServicio(precio, nombre);
+    }
+
+    public void eliminarServicio(Servicio servicio)throws Exception{
+        servicioServicio.eliminarServicio(servicio);
     }
 
 }
