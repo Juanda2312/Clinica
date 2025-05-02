@@ -47,33 +47,37 @@ public class AgendasCitasController implements Initializable {
 
     @FXML
     void AgendarCitaAction(ActionEvent event) {
-        try{
-            clinicaServicio.registrarCita(
-                    textCedulaCitas.getText(),
-                    pickerDia.getValue().atTime(spinnerHorario.getValue(),0),
-                    getServicioSeleccionado()
-            );
-            limpiarCampos();
-            controladorPrincipal.crearAlerta("Cita creada con exito", Alert.AlertType.INFORMATION);
+        if (verificarDatos()){
+            try{
+                clinicaServicio.registrarCita(
+                        textCedulaCitas.getText(),
+                        pickerDia.getValue().atTime(spinnerHorario.getValue(),0),
+                        getServicioSeleccionado()
+                );
+                limpiarCampos();
+                controladorPrincipal.crearAlerta("Cita creada con exito", Alert.AlertType.INFORMATION);
 
-        } catch (Exception e) {
-            controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+            } catch (Exception e) {
+                controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+            }
         }
     }
 
     @FXML
     void AgendarCitaCorreoAction(ActionEvent event) {
-        try{
-            clinicaServicio.registrarCitaCorreo(
-                    textCedulaCitas.getText(),
-                    pickerDia.getValue().atTime(spinnerHorario.getValue(),0),
-                    getServicioSeleccionado()
-            );
-            limpiarCampos();
-            controladorPrincipal.crearAlerta("Cita creada con exito", Alert.AlertType.INFORMATION);
+        if (verificarDatos()){
+            try{
+                clinicaServicio.registrarCitaCorreo(
+                        textCedulaCitas.getText(),
+                        pickerDia.getValue().atTime(spinnerHorario.getValue(),0),
+                        getServicioSeleccionado()
+                );
+                limpiarCampos();
+                controladorPrincipal.crearAlerta("Cita creada con exito", Alert.AlertType.INFORMATION);
 
-        } catch (Exception e) {
-            controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+            } catch (Exception e) {
+                controladorPrincipal.crearAlerta(e.getMessage(), Alert.AlertType.ERROR);
+            }
         }
     }
 
@@ -112,5 +116,18 @@ public class AgendasCitasController implements Initializable {
             }
         }
         return null;
+    }
+
+    public boolean verificarDatos(){
+        String e = "";
+        if (textCedulaCitas.getText().isEmpty()) e = e + "La cedula no puede estar vacia - ";
+        if (pickerDia.getValue() == null) e = e + "Seleccione la dia de la cita - ";
+        if (boxServicios.getValue() == null) e = e + "Seleccione el servicio - ";
+        if (!e.isEmpty()) {
+            controladorPrincipal.crearAlerta(e + "Vefique y rellene los datos.", Alert.AlertType.ERROR);
+            return false;
+        }
+        return true;
+
     }
 }

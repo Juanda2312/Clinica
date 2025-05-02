@@ -19,6 +19,7 @@ public class CitaServicio {
     }
 
     public void registrarCita(Paciente paciente, LocalDateTime fecha, Servicio servicio) throws Exception {
+        if (paciente == null)throw new Exception("Paciente no encontrado");
         String e = "";
         if (fecha.isBefore(LocalDateTime.now())) e = e + "Fecha invalida - ";
         if (servicio == null) e = e + "Servicio invalido - ";
@@ -33,6 +34,7 @@ public class CitaServicio {
         citaRepositorio.registrarCita(cita);
     }
     public void registrarCitaCorreo(Paciente paciente, LocalDateTime fecha, Servicio servicio) throws Exception {
+        if (paciente == null)throw new Exception("Paciente no encontrado");
         String e = "";
         if (fecha.isBefore(LocalDateTime.now())) e = e + "Fecha invalida - ";
         if (servicio == null) e = e + "Servicio invalido - ";
