@@ -118,6 +118,10 @@ public class AgendasCitasController implements Initializable {
         return null;
     }
 
+    /**
+     * Verifica los datos principalmente del date picker para poder utilizar el metodo .atTime()
+     * @return true si todos los datos fueron llenados, false si álguno falta
+     */
     public boolean verificarDatos(){
         String e = "";
         if (textCedulaCitas.getText().isEmpty()) e = e + "La cedula no puede estar vacia - ";

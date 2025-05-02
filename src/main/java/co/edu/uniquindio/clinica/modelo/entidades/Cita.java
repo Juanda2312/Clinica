@@ -21,10 +21,10 @@ public class Cita {
     @Override
     public String toString() {
         return "Detalles de cita:\n" +
-                "Paciente= " + paciente.toString()+ "\n" +
-                "Servicio=" + servicio.toString() + "\n" +
-                "Dia=" + fecha.getDayOfMonth() +"/"+ fecha.getMonthValue() +"/"+ fecha.getYear() + "\n"+
-                "Hora=" + fecha.getHour() + ":" + fecha.getMinute() + ":" + fecha.getSecond() + "\n" +
-                "Factura=" + factura.toString();
+                "Paciente:   " + paciente.toString()+ "\n" +
+                "Servicio:   " + servicio.toString() + "\n" +
+                "Dia:   " + fecha.getDayOfMonth() +"/"+ fecha.getMonthValue() +"/"+ fecha.getYear() + "\n"+
+                "Hora:   " + fecha.getHour() + ":" + fecha.getMinute() + ":" + fecha.getSecond() + "\n" +
+                "Factura:   " + factura.toString();
     }
 }

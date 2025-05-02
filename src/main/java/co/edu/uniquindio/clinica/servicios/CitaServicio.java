@@ -33,6 +33,7 @@ public class CitaServicio {
         Cita cita = Cita.builder().id(UUID.randomUUID()).paciente(paciente).fecha(fecha).servicio(servicio).factura(generarFactura(paciente, servicio)).build();
         citaRepositorio.registrarCita(cita);
     }
+
     public void registrarCitaCorreo(Paciente paciente, LocalDateTime fecha, Servicio servicio) throws Exception {
         if (paciente == null)throw new Exception("Paciente no encontrado");
         String e = "";
