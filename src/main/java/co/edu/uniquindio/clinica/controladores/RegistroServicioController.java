@@ -1,9 +1,6 @@
 package co.edu.uniquindio.clinica.controladores;
 
-import co.edu.uniquindio.clinica.modelo.factory.Suscripcion;
-import co.edu.uniquindio.clinica.modelo.factory.SuscripcionBasica;
-import co.edu.uniquindio.clinica.modelo.factory.SuscripcionPremium;
-import co.edu.uniquindio.clinica.modelo.factory.SuscripcionPremiumPlus;
+import co.edu.uniquindio.clinica.modelo.factory.*;
 import co.edu.uniquindio.clinica.servicios.ClinicaServicio;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -70,12 +67,7 @@ public class RegistroServicioController implements Initializable {
     }
 
     public Suscripcion determinarSuscripcion() {
-        return switch (boxSuscripciones.getValue()) {
-            case ("Suscripción básica") -> SuscripcionBasica.getInstancia();
-            case ("Suscripción premium") -> SuscripcionPremium.getInstancia();
-            case ("Suscripción Premium Plus") -> SuscripcionPremiumPlus.getInstancia();
-            default -> null;
-        };
+        return SuscripcionFactory.seleccionarSuscripcion(boxSuscripciones.getSelectionModel().getSelectedItem());
     }
 
     public void limpiarCampos(){
