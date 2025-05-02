@@ -29,7 +29,7 @@ public class ControladorPrincipal {
         return instancia;
     }
 
-
+    //pa reutilizar luego :3
     public void cerrarVentana(Node node){
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();
