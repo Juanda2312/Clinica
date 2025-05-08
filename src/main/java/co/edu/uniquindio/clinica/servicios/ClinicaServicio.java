@@ -17,9 +17,9 @@ public class ClinicaServicio implements IClinicaServicio {
     private final ServicioServicio servicioServicio;
 
     public ClinicaServicio() {
-        this.citaServicio = new CitaServicio();
         this.pacienteServicio = new PacienteServicio();
         this.servicioServicio = new ServicioServicio();
+        this.citaServicio = new CitaServicio();
     }
 
     public void registrarPaciente(String telefono, String nombre, String cedula, String email, Suscripcion suscripcion)throws Exception {

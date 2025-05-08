@@ -1,16 +1,16 @@
 package co.edu.uniquindio.clinica.modelo.entidades;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Builder
 @Getter
 @Setter
-public class Servicio {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Servicio implements Serializable {
     private Double precio;
     private String nombre;
     private UUID id;

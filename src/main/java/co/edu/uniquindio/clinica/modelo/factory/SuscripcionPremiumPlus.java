@@ -4,11 +4,12 @@ import co.edu.uniquindio.clinica.modelo.entidades.Factura;
 import co.edu.uniquindio.clinica.modelo.entidades.Servicio;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class SuscripcionPremiumPlus implements  Suscripcion{
+public class SuscripcionPremiumPlus implements Suscripcion, Serializable {
     private static SuscripcionPremiumPlus instancia;
 
     @Getter

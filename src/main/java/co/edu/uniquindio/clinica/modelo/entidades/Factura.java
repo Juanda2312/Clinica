@@ -1,17 +1,19 @@
 package co.edu.uniquindio.clinica.modelo.entidades;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Builder
 @Getter
 @Setter
-public class Factura {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Factura implements Serializable {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime fecha;
     private UUID id;
     private Double total,subtotal;

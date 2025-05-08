@@ -1,19 +1,23 @@
 package co.edu.uniquindio.clinica.modelo.entidades;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Builder
 @Getter
 @Setter
-public class Cita {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Cita implements Serializable {
     private Paciente paciente;
     private UUID id;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+
     private LocalDateTime fecha;
     private Servicio servicio;
     private Factura factura;
